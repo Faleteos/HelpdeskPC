@@ -1,0 +1,34 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isWeb$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isWeb$ | async) ? 'over' : 'side'"
+      [opened]="(isWeb$ | async) === false">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item href="/login"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="account_circle"></mat-icon> Login</a>
+      <a mat-list-item href="/registropersona"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="login"></mat-icon> Registro Persona</a>
+      <a mat-list-item href="/tickets"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="horizontal_split"></mat-icon> Tickets</a>
+      <a mat-list-item href="#"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="build"></mat-icon> Servicios</a>
+      <a mat-list-item href="#"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="settings_input_component"></mat-icon> Repuestos</a>
+      <a mat-list-item href="#"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="receipt"></mat-icon> Informes</a>
+      <a mat-list-item href="#"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="library_books"></mat-icon> Remisiones</a>
+      <a mat-list-item href="/personas"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="library_books"></mat-icon> Personas</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color= "primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isWeb$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>helpdeskpc01</span>
+    </mat-toolbar>
+    <div>
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
