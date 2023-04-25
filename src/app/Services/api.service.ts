@@ -5,13 +5,16 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ApiService {
+ // get(arg0: string) {
+   // throw new Error('Method not implemented.');
+  //}
 
   constructor(public http:HttpClient) { }
-  url= "https://localhost:7009/api/"
+  url= "https://localhost:7271/api/"
 
-  async Get(controlador:string){
+  public async get(controlador: string){
     var response:any
-    await this.http.get(this.url+controlador).subscribe(res=>{
+    await this.http.get(this.url+controlador).toPromise().then(res=>{
       response=res
       console.log(res); 
     })
@@ -35,6 +38,7 @@ export class ApiService {
     })
     return response
   }
+
 
   async Delete(controlador:string, id:string, body:any){
     var response:any

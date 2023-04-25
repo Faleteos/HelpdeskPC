@@ -26,6 +26,11 @@ import { LoginComponent } from './Components/login/login.component';
 // Import your AvatarModule
 import { AvatarModule } from 'ngx-avatar';
 import { PersonasComponent } from './Components/personas/personas.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { RepuestosComponent } from './Components/repuestos/repuestos.component';
+import { ServiciosComponent } from './Components/servicios/servicios.component';
+import { InformesComponent } from './Components/informes/informes.component';
+import { UsuariosComponent } from './Components/usuarios/usuarios.component';
 
 
 @NgModule({
@@ -35,7 +40,11 @@ import { PersonasComponent } from './Components/personas/personas.component';
     RegistropersonaComponent,
     TicketsComponent,
     LoginComponent,
-    PersonasComponent
+    PersonasComponent,
+    RepuestosComponent,
+    ServiciosComponent,
+    InformesComponent,
+    UsuariosComponent
   ],
   imports: [
     AvatarModule,
@@ -56,7 +65,8 @@ import { PersonasComponent } from './Components/personas/personas.component';
     ReactiveFormsModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]

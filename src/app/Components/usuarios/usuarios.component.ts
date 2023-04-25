@@ -1,16 +1,16 @@
-import { Component, OnInit, ViewChild  } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ApiService } from 'src/app/Services/api.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
-  selector: 'app-servicios',
-  templateUrl: './servicios.component.html',
-  styleUrls: ['./servicios.component.css']
+  selector: 'app-usuarios',
+  templateUrl: './usuarios.component.html',
+  styleUrls: ['./usuarios.component.css']
 })
-export class ServiciosComponent implements OnInit {
-column:Object;
+export class UsuariosComponent implements OnInit{
+  column:Object;
   displayedColumns: string[]=[]
   dataSource!: MatTableDataSource<any>;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -25,7 +25,7 @@ column:Object;
 
  public async GetRepuestos(){
   //var response=this.Api.Get("Personas");
-  await this.Api.get("Servicios").then((res)=>{
+  await this.Api.get("Usuarios").then((res)=>{
 
     this.displayedColumns=Object.keys(res[0])
       // this.loadTable([res[0]])
