@@ -47,6 +47,7 @@ import { UsuariosComponent } from './Components/usuarios/usuarios.component';
     UsuariosComponent
   ],
   imports: [
+  
     AvatarModule,
     BrowserModule,
     AppRoutingModule,

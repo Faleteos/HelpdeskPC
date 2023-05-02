@@ -1,30 +1,64 @@
 <form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()">
   <mat-card class="shipping-card">
     <mat-card-header>
-      <mat-card-title>Shipping Information</mat-card-title>
+      <mat-card-title>Registro de persona</mat-card-title>
     </mat-card-header>
     <mat-card-content>
+    <br>
       <div class="row">
         <div class="col">
           <mat-form-field class="full-width">
-            <input matInput placeholder="Company" formControlName="company">
+            <mat-select placeholder="Tipo documento" formControlName="state">
+              <mat-option *ngFor="let docs of docs" [value]="docs.abbreviation">
+                {{ docs.name }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="addressForm.controls['state'].hasError('required')">
+              Tipo de documento es <strong>requerido</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="# Documento" formControlName="city">
+            <mat-error *ngIf="addressForm.controls['city'].hasError('required')">
+              Numero de documento es  <strong>requerido</strong>
+            </mat-error>
           </mat-form-field>
         </div>
       </div>
       <div class="row">
         <div class="col">
           <mat-form-field class="full-width">
-            <input matInput placeholder="First name" formControlName="firstName">
+            <input matInput placeholder="Primer Nombre" formControlName="firstName">
             <mat-error *ngIf="addressForm.controls['firstName'].hasError('required')">
-              First name is <strong>required</strong>
+              Primer nombre es <strong>requerido</strong>
             </mat-error>
           </mat-form-field>
         </div>
         <div class="col">
           <mat-form-field class="full-width">
-            <input matInput placeholder="Last name" formControlName="lastName">
+            <input matInput placeholder="Segundo Nombre" formControlName="lastName">
+            <!-- <mat-error *ngIf="addressForm.controls['lastName'].hasError('required')"> -->
+            <!-- Last name is <strong>required</strong> -->
+            <!-- </mat-error> -->
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Primer Apellido" formControlName="firstName">
+            <mat-error *ngIf="addressForm.controls['firstName'].hasError('required')">
+              Primer apellido es <strong>requerido</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Segundo Apellido" formControlName="lastName">
             <mat-error *ngIf="addressForm.controls['lastName'].hasError('required')">
-              Last name is <strong>required</strong>
+              Segundo apellido es <strong>requerido</strong>
             </mat-error>
           </mat-form-field>
         </div>
@@ -32,7 +66,7 @@
       <div class="row">
         <div class="col">
           <mat-form-field class="full-width">
-            <textarea matInput placeholder="Address" formControlName="address"></textarea>
+            <textarea matInput placeholder="Email" formControlName="address"></textarea>
             <mat-error *ngIf="addressForm.controls['address'].hasError('required')">
               Address is <strong>required</strong>
             </mat-error>
@@ -53,7 +87,7 @@
           </mat-form-field>
         </div>
       </div>
-      <div class="row">
+      <!-- <div class="row">
         <div class="col">
           <mat-form-field class="full-width">
             <input matInput placeholder="City" formControlName="city">
@@ -74,7 +108,7 @@
             </mat-error>
           </mat-form-field>
         </div>
-      </div>
+      </div> -->
       <div class="row">
         <div class="col">
           <mat-form-field class="full-width">
