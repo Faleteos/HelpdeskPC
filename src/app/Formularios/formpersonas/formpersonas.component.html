@@ -1,0 +1,151 @@
+<form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()">
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>Registro personas</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <mat-select placeholder="TipoDocumento" formControlName="tipoDoc">
+              <mat-option *ngFor="let tipoDoc of tipoDocs" [value]="tipoDoc.abbreviation">
+                {{ tipoDoc.name }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="addressForm.controls['tipoDoc'].hasError('required')">
+              <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Numero documento" formControlName="numDoc">
+            <mat-error *ngIf="addressForm.controls['numDoc'].hasError('required')">
+              <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Primer nombre" formControlName="primerNombre">
+            <mat-error *ngIf="addressForm.controls['primerNombre'].hasError('required')">
+              <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Segundo nombre" formControlName="segundNombre">
+            <mat-error *ngIf="addressForm.controls['segundNombre'].hasError('required')">
+              Last name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Primer apellido" formControlName="primerApellido">
+            <mat-error *ngIf="addressForm.controls['primerApellido'].hasError('required')">
+              <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Segundo apellido" formControlName="segundoApellido">
+            <mat-error *ngIf="addressForm.controls['segundoApellido'].hasError('required')">
+              <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Numero celular" formControlName="numCel">
+            <mat-error *ngIf="addressForm.controls['numCel'].hasError('required')">
+              <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Email" formControlName="email">
+            <mat-error *ngIf="addressForm.controls['email'].hasError('required')">
+              <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <mat-select placeholder="Pais" formControlName="pais">
+              <mat-option *ngFor="let pais of paises" [value]="pais.abbreviation">
+                {{ pais.name }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="addressForm.controls['tipoDoc'].hasError('required')">
+              <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <mat-select placeholder="Departamento" formControlName="departamento">
+              <mat-option *ngFor="let departamento of departamentos" [value]="departamento.abbreviation">
+                {{ departamento.name }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="addressForm.controls['tipoDoc'].hasError('required')">
+              <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <mat-select placeholder="Ciudades" formControlName="ciudad">
+              <mat-option *ngFor="let ciudad of ciudades" [value]="ciudad.abbreviation">
+                {{ ciudad.name }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="addressForm.controls['tipoDoc'].hasError('required')">
+              <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Barrio" formControlName="barrio">
+            <mat-error *ngIf="addressForm.controls['barrio'].hasError('required')">
+              <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Direccion" formControlName="direccion">
+            <mat-error *ngIf="addressForm.controls['direccion'].hasError('required')">
+              <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+     
+      
+    
+
+    
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit">Submit</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

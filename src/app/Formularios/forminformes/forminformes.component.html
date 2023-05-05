@@ -1,0 +1,34 @@
+<form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()">
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>Informes</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="col">
+        <mat-form-field class="full-width">
+          <mat-select placeholder="TipoInforme" formControlName="tipoInforme">
+            <mat-option *ngFor="let tipoInforme of tipoInformes" [value]="tipoInforme.abbreviation">
+              {{ tipoInforme.name }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="addressForm.controls['tipoInforme'].hasError('required')">
+            <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <textarea matInput placeholder="Descripcion Informe" formControlName="descInforme"></textarea>
+            <mat-error *ngIf="addressForm.controls['descInforme'].hasError('required')">
+            <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit">Submit</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

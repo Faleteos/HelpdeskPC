@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -22,15 +21,23 @@ import { TicketsComponent } from './Components/tickets/tickets.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
-import { LoginComponent } from './Components/login/login.component';
+// import { LoginComponent } from './Components/login/login.component';
 // Import your AvatarModule
 import { AvatarModule } from 'ngx-avatar';
 import { PersonasComponent } from './Components/personas/personas.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDialogModule } from '@angular/material/dialog';
 import { RepuestosComponent } from './Components/repuestos/repuestos.component';
 import { ServiciosComponent } from './Components/servicios/servicios.component';
 import { InformesComponent } from './Components/informes/informes.component';
 import { UsuariosComponent } from './Components/usuarios/usuarios.component';
+import { TableTemplateComponent } from './Components/table-template/table-template.component';
+import { ForminformesComponent } from './Formularios/forminformes/forminformes.component';
+import { FormpersonasComponent } from './Formularios/formpersonas/formpersonas.component';
+import { FormusuariosComponent } from './Formularios/formusuarios/formusuarios.component';
+import { FormrepuestosComponent } from './Formularios/formrepuestos/formrepuestos.component';
+import { FormrserviciosComponent } from './Formularios/formrservicios/formrservicios.component';
+
 
 
 @NgModule({
@@ -39,12 +46,18 @@ import { UsuariosComponent } from './Components/usuarios/usuarios.component';
     HelpmenuComponent,
     RegistropersonaComponent,
     TicketsComponent,
-    LoginComponent,
+    // LoginComponent,
     PersonasComponent,
     RepuestosComponent,
     ServiciosComponent,
     InformesComponent,
-    UsuariosComponent
+    UsuariosComponent,
+    TableTemplateComponent,
+    ForminformesComponent,
+    FormpersonasComponent,
+    FormusuariosComponent,
+    FormrepuestosComponent,
+    FormrserviciosComponent
   ],
   imports: [
   
@@ -56,6 +69,7 @@ import { UsuariosComponent } from './Components/usuarios/usuarios.component';
     LayoutModule,
     MatToolbarModule,
     MatButtonModule,
+    MatDialogModule,
     MatSidenavModule,
     MatIconModule,
     MatListModule,

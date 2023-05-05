@@ -19,11 +19,11 @@ export class TicketsComponent implements OnInit  {
     this.dataSource=new MatTableDataSource();
   }
   ngOnInit(): void {
-    this.GetRepuestos();
+    this.GetTickets();
   //  throw new Error('Method not implemented.');
   }
 
- public async GetRepuestos(){
+ public async GetTickets(){
   //var response=this.Api.Get("Personas");
   await this.Api.get("tickets").then((res)=>{
 
