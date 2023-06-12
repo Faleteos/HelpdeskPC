@@ -37,12 +37,12 @@ export class UsuariosComponent implements OnInit{
   //var response=this.Api.Get("Personas");
   this.TableService.titleTabla="Usuarios";
   this.TableService.controlador = "Usuarios";
-  await this.Api.get("Usuarios").then((res)=>{
+//   await this.Api.get("Usuarios").then((res)=>{
 
-    this.displayedColumns=Object.keys(res[0])
-      // this.loadTable([res[0]])
-      this.dataSource.data=res
- });
+//     this.displayedColumns=Object.keys(res[0])
+//       // this.loadTable([res[0]])
+//       this.dataSource.data=res
+//  });
  this.dataSource.paginator=this.paginator;
  this.dataSource.sort=this.sort
 

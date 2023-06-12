@@ -5,6 +5,13 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Title } from '@angular/platform-browser';
+import Swal from 'sweetalert2';
+import { MatDialog } from '@angular/material/dialog';
+import { FormrserviciosComponent } from 'src/app/Formularios/formrservicios/formrservicios.component';
+import { FormrepuestosComponent } from 'src/app/Formularios/formrepuestos/formrepuestos.component';
+import { FormpersonasComponent } from 'src/app/Formularios/formpersonas/formpersonas.component';
+import { ServiciosComponent } from '../servicios/servicios.component';
+import { FormsService } from 'src/app/Services/forms.service';
 
 @Component({
   selector: 'app-table-template',
@@ -12,16 +19,32 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./table-template.component.css']
 })
 export class TableTemplateComponent implements OnInit {
-  @Input() titulo:string
+  @Input() component:string;
+  @Input() titulo:string;
+  @Input() service:string;
   column:Object;
   displayedColumns: string[]=[]
   dataSource!: MatTableDataSource<any>;
+  action : any = "Actions";
+  nameformServ : any = "Servicios";
+  nameformRep : any = "Repuestos";
+  nameformPer : any = "Personas";
+  nameform : any;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  constructor(public Api: ApiService, public TableService:TableService){
+  constructor(public Api: ApiService, public TableService:TableService,public dialog: MatDialog, public forms:FormsService){
     this.dataSource=new MatTableDataSource();
   }
 
+  formButton():void{
+    
+
+  }
+
+  openModal() {
+    
+    
+  }
   ngOnInit(): void {
     
   this.datosTabla();
@@ -33,6 +56,7 @@ export class TableTemplateComponent implements OnInit {
       this.displayedColumns=Object.keys(res[0])
       this.dataSource.data=res
       this.TableService.dataSource=res
+      this.displayedColumns.push( this.action)
     });
     this.dataSource.paginator=this.paginator;
     this.dataSource.sort=this.sort
@@ -46,5 +70,48 @@ export class TableTemplateComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
+
+  delete(): void {
+    Swal.fire(
+      'Good job!',
+      'You clicked the button!',
+      'success'
+    )
+  }
+
+  edit(object: any) {
+
+    switch (this.component) {
+
+      case this.nameformPer:{
+
+        this.forms.object=object;
+        this.forms.objexample.next(object)
+        console.log(object)
+        this.forms.component.next(this.nameformPer)
+        this.dialog.open(FormpersonasComponent);
+        break;
+      }
+      case this.nameformServ:{
+
+        this.forms.object=object;
+        this.forms.component.next(this.nameformServ)
+        this.dialog.open(FormrserviciosComponent);
+        break;
+      }
+      case this.nameformRep:{
+
+        this.forms.object=object;
+        this.forms.component.next(this.nameformRep)
+        this.dialog.open(FormrepuestosComponent);
+        break;
+      }
+    }
+  }
+
+  
+
+  
+
 }
 

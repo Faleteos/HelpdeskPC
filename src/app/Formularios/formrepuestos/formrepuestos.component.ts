@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { FormsService } from 'src/app/Services/forms.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -7,8 +8,11 @@ import Swal from 'sweetalert2';
   templateUrl: './formrepuestos.component.html',
   styleUrls: ['./formrepuestos.component.css']
 })
-export class FormrepuestosComponent {
-  addressForm = this.fb.group({
+export class FormrepuestosComponent implements OnInit{
+
+  nameformRep : any = "Repuestos";
+
+  repForm = this.fb.group({
 
     tipoRep: [null, Validators.required],
     marcaRep: [null, Validators.required],
@@ -60,7 +64,24 @@ export class FormrepuestosComponent {
 
   ];
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, public forms: FormsService) {}
+  ngOnInit(): void {
+   
+    this.forms.component.subscribe((res)=>{
+      if(res===this.nameformRep){
+
+        this.repForm.setControl("tipoRep", new FormControl(this.forms.object.tipoRep))
+        this.repForm.setControl("capRep", new FormControl(this.forms.object.capRep))
+        this.repForm.setControl("marcaRep", new FormControl(this.forms.object.marca))
+        this.repForm.setControl("valorRep", new FormControl(this.forms.object.valorRep))
+        this.repForm.setControl("stockRep", new FormControl(this.forms.object.stockRep))
+       
+        // this.repForm.setControl("numCel", new FormControl(this.forms.object.numCel))
+        // this.repForm.setControl("email", new FormControl(this.forms.object.email))
+        
+      }
+    })
+  }
 
   onSubmit(): void {
     Swal.fire(

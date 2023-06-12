@@ -1,5 +1,6 @@
 table {
     width: 100%;
+    overflow: auto;
   }
   
   .mat-mdc-form-field {
@@ -9,4 +10,32 @@ table {
   
   td, th {
     width: 25%;
+  }
+
+  .example-button-container {
+    display: flex;
+    justify-content: center;
+    width: 100px;
+  }
+  .row {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .col {
+    flex: 1;
+    margin-right:-30px;
+  }
+
+  .example-container {
+    height: 400px;
+    width: 1250px;
+    max-width: 100%;
+    overflow: auto;
+    position: relative;
+    left: 50px;
+  }
+
+  i{
+    font-size: 20px;
   }

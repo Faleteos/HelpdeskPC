@@ -17,7 +17,7 @@ column:Object;
   displayedColumns: string[]=[]
   dataSource!: MatTableDataSource<any>;
 
-  title="Servicios"
+  public title="Servicios"
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;  
 
@@ -37,12 +37,12 @@ column:Object;
   //var response=this.Api.Get("Personas");
   this.TableService.titleTabla="Servicios";
   this.TableService.controlador = "Servicios";
-  await this.Api.get("Servicios").then((res)=>{
+//   await this.Api.get("Servicios").then((res)=>{
 
-    this.displayedColumns=Object.keys(res[0])
-      // this.loadTable([res[0]])
-      this.dataSource.data=res
- });
+//     this.displayedColumns=Object.keys(res[0])
+//       // this.loadTable([res[0]])
+//       this.dataSource.data=res
+//  });
  this.dataSource.paginator=this.paginator;
  this.dataSource.sort=this.sort
 

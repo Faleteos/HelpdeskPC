@@ -21,7 +21,7 @@ import { TicketsComponent } from './Components/tickets/tickets.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
-// import { LoginComponent } from './Components/login/login.component';
+import { LoginComponent } from './Components/login/login.component';
 // Import your AvatarModule
 import { AvatarModule } from 'ngx-avatar';
 import { PersonasComponent } from './Components/personas/personas.component';
@@ -37,6 +37,9 @@ import { FormpersonasComponent } from './Formularios/formpersonas/formpersonas.c
 import { FormusuariosComponent } from './Formularios/formusuarios/formusuarios.component';
 import { FormrepuestosComponent } from './Formularios/formrepuestos/formrepuestos.component';
 import { FormrserviciosComponent } from './Formularios/formrservicios/formrservicios.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { FormsModule } from '@angular/forms';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 
 
@@ -46,7 +49,7 @@ import { FormrserviciosComponent } from './Formularios/formrservicios/formrservi
     HelpmenuComponent,
     RegistropersonaComponent,
     TicketsComponent,
-    // LoginComponent,
+    LoginComponent,
     PersonasComponent,
     RepuestosComponent,
     ServiciosComponent,
@@ -81,9 +84,14 @@ import { FormrserviciosComponent } from './Formularios/formrservicios/formrservi
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    FlexLayoutModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatSlideToggleModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+// schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

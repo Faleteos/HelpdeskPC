@@ -6,6 +6,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { TableService } from './../../Services/table.service';
 import { FormpersonasComponent } from 'src/app/Formularios/formpersonas/formpersonas.component';
+import { FormsService } from 'src/app/Services/forms.service';
 
 @Component({
   selector: 'app-personas',
@@ -20,11 +21,12 @@ export class PersonasComponent implements OnInit {
   title="Personas"
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;  
-  constructor(public Api: ApiService, public TableService: TableService,public dialog: MatDialog ){
+  constructor(public Api: ApiService, public TableService: TableService,public dialog: MatDialog, public forms:FormsService){
     this.dataSource=new MatTableDataSource();
   }
   ngOnInit(): void {
     this.GetPersonas();
+    
   //  throw new Error('Method not implemented.');
   }
   

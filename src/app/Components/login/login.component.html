@@ -1,13 +1,75 @@
-<!-- 
-<div class="container">
-  <div class="center">
-    <ngx-avatar src="assets/haloavatar.jpg"></ngx-avatar>
-  </div>
+<div *ngIf="validarSesion()!='login';else templateMenu">
+  <!-- <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>Login</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input type="text" matInput placeholder="Username" formControlName="username">
+            <mat-error *ngIf="loginForm.controls['username'].hasError('required')">
+              <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input type="password" matInput placeholder="Password" formControlName="password">
+            <mat-error *ngIf="loginForm.controls['password'].hasError('required')">
+              <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button type="submit" mat-input>Ingreso</button>
+    </mat-card-actions>
+  </mat-card>
+</form> -->
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+  <mat-card class="box">
+    <mat-card-header>
+      <mat-card-title>Log in</mat-card-title>
+    </mat-card-header>
+    <form class="example-form" form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <mat-card-content>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input type="text" matInput placeholder="Username" formControlName="username">
+              <mat-error *ngIf="loginForm.controls['username'].hasError('required')">
+                <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input type="password" matInput placeholder="Password" formControlName="password">
+              <mat-error *ngIf="loginForm.controls['password'].hasError('required')">
+                <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+      </mat-card-content>
+      <button mat-stroked-button color="accent" class="btn-block" type="submit" mat-input>Log in</button>
+    </form>
+  </mat-card>
 </div>
-<div class="container">
-  <div class="center">
-    <ngx-avatar name="Fabian Tellez"></ngx-avatar>
+
+</div>
+
+<ng-template #templateMenu>
+  <div style="width: 100%;height: 100%;">
+    <app-helpmenu></app-helpmenu>   
   </div>
-</div> -->
+</ng-template>
 
 

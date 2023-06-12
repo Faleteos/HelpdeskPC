@@ -4,16 +4,18 @@
       [mode]="(isWeb$ | async) ? 'over' : 'side'"
       [opened]="(isWeb$ | async) === false">
     <mat-toolbar>Menu</mat-toolbar>
-    <mat-nav-list>
-      <a mat-list-item href="/login"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="account_circle"></mat-icon> Login</a>
-      <a mat-list-item href="/registropersona"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="login"></mat-icon> Registro Persona</a>
+    <mat-nav-list >
+      <!-- <a mat-list-item href="/login"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="account_circle"></mat-icon> Login</a> -->
+      <!-- <a mat-list-item href="/registropersona"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="login"></mat-icon> Registro Persona</a> -->
       <a mat-list-item href="/tickets"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="horizontal_split"></mat-icon> Tickets</a>
       <a mat-list-item href="/servicios"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="build"></mat-icon> Servicios</a>
       <a mat-list-item href="/repuestos"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="settings_input_component"></mat-icon> Repuestos</a>
       <a mat-list-item href="/informes"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="receipt"></mat-icon> Informes</a>
       <a mat-list-item href="#"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="library_books"></mat-icon> Remisiones</a>
-      <a mat-list-item href="/personas"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="library_books"></mat-icon> Personas</a>
-      <a mat-list-item href="/usuarios"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="library_books"></mat-icon> Usuarios</a>
+      <a mat-list-item href="/personas"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="accessibility"></mat-icon> Personas</a>
+      <a mat-list-item href="/usuarios"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="account_box"></mat-icon> Usuarios</a>
+      <a mat-list-item type="submit" (click)="onSubmit()"mat-input><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="exit_to_app"></mat-icon> Logout</a>
+      <!-- <button type="submit" (click)="onSubmit()"mat-input>Logout</button> -->
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>

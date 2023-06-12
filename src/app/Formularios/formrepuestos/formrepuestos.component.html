@@ -1,4 +1,4 @@
-<form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()">
+<form [formGroup]="repForm" novalidate (ngSubmit)="onSubmit()">
   <mat-card class="shipping-card">
     <mat-card-header>
       <mat-card-title>Registro repuestos </mat-card-title>
@@ -12,7 +12,7 @@
                 {{ tipoRep.name }}
               </mat-option>
             </mat-select>
-            <mat-error *ngIf="addressForm.controls['tipoRep'].hasError('required')">
+            <mat-error *ngIf="repForm.controls['tipoRep'].hasError('required')">
               <strong>required</strong>
             </mat-error>
           </mat-form-field>
@@ -24,7 +24,7 @@
                 {{marcaRep.name }}
               </mat-option>
             </mat-select>
-            <mat-error *ngIf="addressForm.controls['marcaRep'].hasError('required')">
+            <mat-error *ngIf="repForm.controls['marcaRep'].hasError('required')">
               <strong>required</strong>
             </mat-error>
           </mat-form-field>
@@ -40,7 +40,7 @@
                 {{capRep.name }}
               </mat-option>
             </mat-select>
-            <mat-error *ngIf="addressForm.controls['capRep'].hasError('required')">
+            <mat-error *ngIf="repForm.controls['capRep'].hasError('required')">
               <strong>required</strong>
             </mat-error>
           </mat-form-field>
@@ -48,7 +48,7 @@
         <div class="col">
           <mat-form-field class="full-width">
             <input matInput placeholder="Valor reouesto" formControlName="valorRep">
-            <mat-error *ngIf="addressForm.controls['valorRep'].hasError('required')">
+            <mat-error *ngIf="repForm.controls['valorRep'].hasError('required')">
              <strong>required</strong>
             </mat-error>
           </mat-form-field>
@@ -58,7 +58,7 @@
         <div class="col">
           <mat-form-field class="full-width">
             <textarea matInput placeholder="Stock repuesto" formControlName="stockRep"></textarea>
-            <mat-error *ngIf="addressForm.controls['stockRep'].hasError('required')">
+            <mat-error *ngIf="repForm.controls['stockRep'].hasError('required')">
               <strong>required</strong>
             </mat-error>
           </mat-form-field>

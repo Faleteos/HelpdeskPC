@@ -12,5 +12,6 @@ export class TableService {
   displayedColumnsTable: String[]
   titleTabla:String
   dataSource:any 
+  action:any
   controlador = '';
 }

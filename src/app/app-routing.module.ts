@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-// import { LoginComponent } from './Components/login/login.component';
+import { LoginComponent } from './Components/login/login.component';
 import { RegistropersonaComponent } from './Components/registropersona/registropersona.component';
 import { TicketsComponent } from './Components/tickets/tickets.component';
 import { PersonasComponent } from './Components/personas/personas.component';
@@ -14,8 +14,8 @@ import { ForminformesComponent } from 'src/app/Formularios/forminformes/forminfo
 
 const routes: Routes = [
   { path: 'registropersona', component:RegistropersonaComponent },
+  { path: 'registropersona', component:RegistropersonaComponent },
   { path: 'tickets', component:TicketsComponent },
-  // { path: 'login', component:LoginComponent },
   { path: 'personas', component:PersonasComponent },
   { path: 'repuestos', component:RepuestosComponent },
   { path: 'servicios', component:ServiciosComponent },
