@@ -12,6 +12,7 @@ import { FormrepuestosComponent } from 'src/app/Formularios/formrepuestos/formre
 import { FormpersonasComponent } from 'src/app/Formularios/formpersonas/formpersonas.component';
 import { ServiciosComponent } from '../servicios/servicios.component';
 import { FormsService } from 'src/app/Services/forms.service';
+import { ForminformesComponent } from 'src/app/Formularios/forminformes/forminformes.component';
 
 @Component({
   selector: 'app-table-template',
@@ -29,6 +30,7 @@ export class TableTemplateComponent implements OnInit {
   nameformServ : any = "Servicios";
   nameformRep : any = "Repuestos";
   nameformPer : any = "Personas";
+  nameformInf : any = "Informes";
   nameform : any;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -71,12 +73,10 @@ export class TableTemplateComponent implements OnInit {
     }
   }
 
-  delete(): void {
-    Swal.fire(
-      'Good job!',
-      'You clicked the button!',
-      'success'
-    )
+  delete(row:any): void {
+       let getId=Object.values(row)[0];
+
+     this.Api.Delete(this.component,getId.toString())
   }
 
   edit(object: any) {
@@ -104,6 +104,13 @@ export class TableTemplateComponent implements OnInit {
         this.forms.object=object;
         this.forms.component.next(this.nameformRep)
         this.dialog.open(FormrepuestosComponent);
+        break;
+      }
+      case this.nameformInf:{
+
+        this.forms.object=object;
+        this.forms.component.next(this.nameformInf)
+        this.dialog.open(ForminformesComponent);
         break;
       }
     }

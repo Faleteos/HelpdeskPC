@@ -21,7 +21,7 @@ export class FormpersonasComponent implements OnInit {
     pApellido:    [null, Validators.required],
     sApellido:    [null, Validators.required],
     numCel:       [null, Validators.required],
-    email:        [null, Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")],
+    email:        [null, Validators.required],
     pais:         [null, Validators.required],
     departamento: [null, Validators.required],
     ciudad:       [null, Validators.required],
@@ -53,6 +53,7 @@ export class FormpersonasComponent implements OnInit {
   
   ciudades = [
     {name: 'Bogota', abbreviation: 'CO'},
+    {name: 'Soacha', abbreviation: 'CO'},
     {name: 'Ibague', abbreviation: 'MX'},
     {name: 'tunja', abbreviation: 'BR'}
   ];
@@ -64,18 +65,16 @@ export class FormpersonasComponent implements OnInit {
   ngOnInit(): void {
 
 
-  console.log(this.tipoDocs[0].abbreviation);
-  console.log(this.paises[0].name);
+  // console.log(this.tipoDocs[0].abbreviation);
+  // console.log(this.paises[0].name);
 
-
-
-  
   this.forms.objexample.subscribe((resp:any)=>{
       this.perForm.patchValue(resp);
   })
 
 
     this.forms.component.subscribe((res)=>{
+         console.log(res)
       if(res===this.nameformPer){
         // this.perForm.setControl['tipoDoc'].value(this.forms.object.tipoDoc)
         // this.perForm.setControl("numDoc", new FormControl(this.forms.object.numDoc))

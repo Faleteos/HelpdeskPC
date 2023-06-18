@@ -6,6 +6,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { TableService } from './../../Services/table.service';
 import { ForminformesComponent } from 'src/app/Formularios/forminformes/forminformes.component';
+import { FormsService } from 'src/app/Services/forms.service';
 
 @Component({
   selector: 'app-informes',
@@ -21,7 +22,7 @@ export class InformesComponent implements OnInit{
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(public Api: ApiService, public TableService: TableService,public dialog: MatDialog ){
+  constructor(public Api: ApiService, public TableService: TableService,public dialog: MatDialog, public forms:FormsService ){
     this.dataSource=new MatTableDataSource();
   }
   ngOnInit(): void {

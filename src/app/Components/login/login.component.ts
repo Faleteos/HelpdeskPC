@@ -1,5 +1,6 @@
 import { Component,OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ApiService } from 'src/app/Services/api.service';
 import { LoginService } from 'src/app/Services/login.service';
 import Swal from 'sweetalert2';
 
@@ -10,7 +11,7 @@ import Swal from 'sweetalert2';
 })
 export class LoginComponent implements OnInit {
   
-  constructor(public loginservice:LoginService) {
+  constructor(public loginservice:LoginService,private api:ApiService) {
   }
 
   em = "";
@@ -30,17 +31,30 @@ export class LoginComponent implements OnInit {
  async onSubmit(){
     this.em = this.loginForm.controls["username"].value;
     this.pass = this.loginForm.controls["password"].value;
-    if(this.em==="usuario" && this.pass==="1234"){
-    Swal.fire(
-        'Muy Bien!!',
-        'Se a logueado con exito',
-        'success'
-    )
-   localStorage.setItem('login', 'login');
-   location.href='/';
 
-  // this.loginservice.login.next("login");
-}
+    let Cadena=this.em+" "+this.pass;
+
+    console.log(Cadena);
+
+    this.api.getIdLogin('Usuarios',Cadena).subscribe((resp:any)=>{
+        if(resp.length!=0){
+          Swal.fire(
+            'Muy Bien!!',
+            'Se a logueado con exito',
+            'success'
+        )
+       localStorage.setItem('login', 'login');
+       location.href='/';
+        }else{
+          Swal.fire(
+            'Muy Mal!!',
+            'No se a logueado con exito',
+            'error'
+        )
+        }
+    })
+
+
 
 
   // }   else{

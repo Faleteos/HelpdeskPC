@@ -20,7 +20,8 @@ export class PersonasComponent implements OnInit {
 
   title="Personas"
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatSort) sort!: MatSort;  
+  @ViewChild(MatSort) sort!: MatSort; 
+   
   constructor(public Api: ApiService, public TableService: TableService,public dialog: MatDialog, public forms:FormsService){
     this.dataSource=new MatTableDataSource();
   }

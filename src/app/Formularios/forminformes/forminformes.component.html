@@ -1,4 +1,4 @@
-<form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()">
+<form [formGroup]="InForm" novalidate (ngSubmit)="onSubmit()">
   <mat-card class="shipping-card">
     <mat-card-header>
       <mat-card-title>Informes</mat-card-title>
@@ -7,11 +7,13 @@
       <div class="col">
         <mat-form-field class="full-width">
           <mat-select placeholder="TipoInforme" formControlName="tipoInforme">
-            <mat-option *ngFor="let tipoInforme of tipoInformes" [value]="tipoInforme.abbreviation">
-              {{ tipoInforme.name }}
+            <!-- <mat-option *ngFor="let tipoInforme of tipoInformes" [value]="tipoInforme.abbreviation">
+              {{ tipoInforme.name }} -->
+              <mat-option *ngFor="let tipoInforme of tipoInformes;index as index" [value]="tipoInforme.name">
+                {{ tipoInforme.name }}  
             </mat-option>
           </mat-select>
-          <mat-error *ngIf="addressForm.controls['tipoInforme'].hasError('required')">
+          <mat-error *ngIf="InForm.controls['tipoInforme'].hasError('required')">
             <strong>required</strong>
           </mat-error>
         </mat-form-field>
@@ -20,8 +22,20 @@
         <div class="col">
           <mat-form-field class="full-width">
             <textarea matInput placeholder="Descripcion Informe" formControlName="descInforme"></textarea>
-            <mat-error *ngIf="addressForm.controls['descInforme'].hasError('required')">
+            <mat-error *ngIf="InForm.controls['descInforme'].hasError('required')">
             <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <mat-select placeholder="EstadoInforme" formControlName="estadoinforme">
+                <mat-option *ngFor="let estadoInforme of estadoInformes;index as index" [value]="estadoInforme.name">
+                  {{ estadoInforme.name }}  
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="InForm.controls['estadoInforme'].hasError('required')">
+              <strong>required</strong>
             </mat-error>
           </mat-form-field>
         </div>

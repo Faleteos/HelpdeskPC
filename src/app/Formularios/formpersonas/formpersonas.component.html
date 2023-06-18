@@ -98,8 +98,10 @@
         <div class="col">
           <mat-form-field class="full-width">
             <mat-select placeholder="Departamento" formControlName="departamento">
-              <mat-option *ngFor="let departamento of departamentos" [value]="departamento.abbreviation">
-                {{ departamento.name }}
+              <!-- <mat-option *ngFor="let departamento of departamentos" [value]="departamento.abbreviation">
+                {{ departamento.name }} -->
+                <mat-option *ngFor="let departamento of departamentos;index as index" [value]="departamento.name">
+                  {{ departamento.name }}    
               </mat-option>
             </mat-select>
             <mat-error *ngIf="perForm.controls['tipoDoc'].hasError('required')">
@@ -112,8 +114,10 @@
         <div class="col">
           <mat-form-field class="full-width">
             <mat-select placeholder="Ciudades" formControlName="ciudad">
-              <mat-option *ngFor="let ciudad of ciudades" [value]="ciudad.abbreviation">
-                {{ ciudad.name }}
+              <!-- <mat-option *ngFor="let ciudad of ciudades" [value]="ciudad.abbreviation">
+                {{ ciudad.name }} -->
+                <mat-option *ngFor="let ciudad of ciudades;index as index" [value]="ciudad.name">
+                  {{ ciudad.name }}    
               </mat-option>
             </mat-select>
             <mat-error *ngIf="perForm.controls['tipoDoc'].hasError('required')">
@@ -140,11 +144,8 @@
           </mat-form-field>
         </div>
       </div>
-     
+    
       
-    
-
-    
     </mat-card-content>
     <mat-card-actions>
       <button mat-raised-button color="primary" type="submit">Submit</button>

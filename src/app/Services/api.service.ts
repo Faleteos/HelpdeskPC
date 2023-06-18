@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +23,12 @@ export class ApiService {
     return response
   }
 
+  /**Login para acceder */
+  public getIdLogin(controlador:string,data:string):Observable<any>{
+     return this.http.get(this.url+controlador+"/"+data,{responseType:'text'});
+  }
+  
+
   async Post(controlador:string, body:any){
     var response:any
     await this.http.post(this.url+controlador+"/", body).subscribe(res=>{
@@ -40,12 +47,12 @@ export class ApiService {
   }
 
 
-  async Delete(controlador:string, id:string, body:any){
+  async Delete(controlador:string, id:string){
     var response:any
-    await this.http.delete(this.url+controlador+"/"+id).subscribe(res=>{
+     this.http.delete(this.url+controlador+"/"+id).subscribe(res=>{
       response=res 
     })
-    return response
+    return await response
   }
 
 }
